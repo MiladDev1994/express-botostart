@@ -15,13 +15,15 @@
     "dev_express_validation": "nodemon 007_validation/express_validation/index",
     "dev_validate": "nodemon 007_validation/validate/index",
     "dev_joi": "nodemon 007_validation/joi/index",
-    "dev_multer": "nodemon 008_uploadFile/multer/index"
+    "dev_multer": "nodemon 008_uploadFile/multer/index",
+    "dev_fileupload": "nodemon 008_uploadFile/fileupload/index"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
     "express": "^4.18.2",
+    "express-fileupload": "^1.4.3",
     "express-validation": "^4.1.0",
     "express-validator": "^7.0.1",
     "joi": "^17.12.2",

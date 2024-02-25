@@ -40,7 +40,7 @@ app.use(NotFoundHandler)
 app.use(ErrorHandler)
 
 
-// میتونیم برای تمام این میدلویر ها یه یوتیلز بنویسیم تا هرجا که خواستیم بتونیم داشون بزنیم
+// میتونیم برای تمام این میدلویر ها یه یوتیلز بنویسیم تا هرجا که خواستیم بتونیم صداشون بزنیم
 app.listen(port, () => {
     console.log(`app started on port ${port} \n http://localhost:${port}`)
 })

@@ -6,12 +6,13 @@ const fs = require("fs");
 const app = express();
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
+require("dotenv").config()
 
 
 const { Telegraf } = require("telegraf");
 const { Json } = require("sequelize/lib/utils");
-const botToken = "6910125953:AAF60DgusOV0A7hxclR81QiShM3X-wEo71I"
-const bot = new Telegraf(botToken)
+const botToken = process.env.TELEGRAF_TOKEN
+const bot = new Telegraf(botToken) 
 
 
 
@@ -62,18 +63,41 @@ const bot = new Telegraf(botToken)
 // })
 
 
-bot.command("image", (ctx) => {
-    // const imagePath = path.join(__dirname, "Hat3.jpg")
-    // const image = fs.readFileSync(imagePath)
-    // console.log(fs.createReadStream(path.join(__dirname, "Hat3.jpg")))
-    // ctx.sendPhoto(ctx.chat.id, JSON.stringify(image))  
-    ctx.sendPhoto({
-        source: fs.createReadStream(path.join(__dirname, "Hat3.jpg"))
-    }, {
-        // reply_to_message_id: ctx.message.message_id // برای ارسال هدر همراه با عکس
-        reply_to_message_id: ctx.message.message_id // برای ارسال هدر همراه با عکس
-    })  
-})
+// bot.command("image", (ctx) => {
+//     // const imagePath = path.join(__dirname, "Hat3.jpg")
+//     // const image = fs.readFileSync(imagePath)
+//     // console.log(fs.createReadStream(path.join(__dirname, "Hat3.jpg")))
+//     // ctx.sendPhoto(ctx.chat.id, JSON.stringify(image))  
+//     ctx.sendPhoto({
+//         source: fs.createReadStream(path.join(__dirname, "Hat3.jpg"))
+//     }, {
+//         // reply_to_message_id: ctx.message.message_id // برای ارسال هدر همراه با عکس
+//         reply_to_message_id: ctx.message.message_id // برای ارسال هدر همراه با عکس
+//     })  
+// })
+
+
+// bot.command("chatAction", (ctx) => { 
+//     // ctx.sendChatAction("upload_photo")
+//     // ctx.sendChatAction("upload_video")
+//     // ctx.sendChatAction("upload_voice")
+//     // ctx.sendChatAction("record_video")
+//     ctx.sendChatAction("typing")
+
+//     ctx.sendMessage("chatAction")   
+// })
+
+
+
+// bot.command("media", (ctx) => { 
+//     ctx.sendMessage("chatAction")   
+//     // ctx.sendAudio()   
+//     // ctx.sendContact()   
+//     // ctx.sendDocument()   
+//     // ctx.sendGame()   
+//     // ctx.sendPhoto()   
+//     // ctx.sendSticker()   
+// })
 
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -214,7 +238,7 @@ bot.command("image", (ctx) => {
 
 
 
-// bot.telegram.sendMessage(142620110, "start, help, settings") 
+bot.telegram.sendMessage(142620110, "can i help you?") 
 
 
 bot.launch() 
